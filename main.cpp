@@ -87,6 +87,18 @@ int main()
 		ns::person p2 = j;
 
 		std::cout << p2.address << std::endl;
+
+		std::string a = j.dump();
+		json j2 = json::parse(a);
+		p2 = j2;
+		std::cout << p2.address << std::endl;
+
+		
+#if 0
+		// 错误的，应该使用json::parse
+		p2 = json(a);
+		std::cout << p2.address << std::endl;
+#endif
 	}
 
 	system("pause");
