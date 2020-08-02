@@ -18,6 +18,9 @@ namespace ns {
 		std::string address;
 		int age;
 	};
+	struct personList {
+		std::vector<person> list;
+	};
 }
 namespace ns {
 	void to_json(json& j, const person& p) {
@@ -26,8 +29,27 @@ namespace ns {
 
 	void from_json(const json& j, person& p) {
 		p.name = j.at("name").get<std::string>();
-		p.name = j.at("address").get<std::string>();
-		p.name = j.at("age").get<int>();
+		p.address = j.at("address").get<std::string>();
+		p.age = j.at("age").get<int>();
+	}
+
+	void to_json(json& j, const personList& p) {
+
+		//json required_json;
+		//for (auto it : p.list)
+		//{
+		//	json one;
+		//	to_json(one, it);
+		//	required_json.push_back(one);
+		//}
+
+		//j = json{ {"list", required_json} };
+		j = json{ {"list", p.list} };
+	}
+
+	void from_json(const json& j, personList& p) {
+		//j.at("list").get_to<std::vector<person>>(p.list);
+		p.list = j.at("list").get<std::vector<person>>();
 	}
 }
 
@@ -99,6 +121,24 @@ int main()
 		p2 = json(a);
 		std::cout << p2.address << std::endl;
 #endif
+	}
+
+	// 数组+嵌套其他
+	{
+		ns::person p{ "Ned Flanders", "744 Evergreen Terrace", 60 };
+
+		ns::personList pl;
+		pl.list.push_back(p);
+
+		// 隐式转换: person -> json
+		json j = pl;
+
+		std::string a = j.dump();
+		json j2 = json::parse(a);
+		
+		ns::personList p2 = j2;
+
+		std::cout << p2.list.size() << std::endl;
 	}
 
 	system("pause");
