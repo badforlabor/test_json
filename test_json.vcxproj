@@ -85,6 +85,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -118,6 +119,66 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test_bitsery.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bitsery\adapter\buffer.h" />
+    <ClInclude Include="bitsery\adapter\measure_size.h" />
+    <ClInclude Include="bitsery\adapter\stream.h" />
+    <ClInclude Include="bitsery\bitsery.h" />
+    <ClInclude Include="bitsery\brief_syntax.h" />
+    <ClInclude Include="bitsery\brief_syntax\array.h" />
+    <ClInclude Include="bitsery\brief_syntax\atomic.h" />
+    <ClInclude Include="bitsery\brief_syntax\chrono.h" />
+    <ClInclude Include="bitsery\brief_syntax\deque.h" />
+    <ClInclude Include="bitsery\brief_syntax\forward_list.h" />
+    <ClInclude Include="bitsery\brief_syntax\list.h" />
+    <ClInclude Include="bitsery\brief_syntax\map.h" />
+    <ClInclude Include="bitsery\brief_syntax\memory.h" />
+    <ClInclude Include="bitsery\brief_syntax\queue.h" />
+    <ClInclude Include="bitsery\brief_syntax\set.h" />
+    <ClInclude Include="bitsery\brief_syntax\stack.h" />
+    <ClInclude Include="bitsery\brief_syntax\string.h" />
+    <ClInclude Include="bitsery\brief_syntax\tuple.h" />
+    <ClInclude Include="bitsery\brief_syntax\unordered_map.h" />
+    <ClInclude Include="bitsery\brief_syntax\unordered_set.h" />
+    <ClInclude Include="bitsery\brief_syntax\variant.h" />
+    <ClInclude Include="bitsery\brief_syntax\vector.h" />
+    <ClInclude Include="bitsery\common.h" />
+    <ClInclude Include="bitsery\deserializer.h" />
+    <ClInclude Include="bitsery\details\adapter_common.h" />
+    <ClInclude Include="bitsery\details\brief_syntax_common.h" />
+    <ClInclude Include="bitsery\details\not_defined_type.h" />
+    <ClInclude Include="bitsery\details\serialization_common.h" />
+    <ClInclude Include="bitsery\ext\compact_value.h" />
+    <ClInclude Include="bitsery\ext\entropy.h" />
+    <ClInclude Include="bitsery\ext\growable.h" />
+    <ClInclude Include="bitsery\ext\inheritance.h" />
+    <ClInclude Include="bitsery\ext\pointer.h" />
+    <ClInclude Include="bitsery\ext\std_atomic.h" />
+    <ClInclude Include="bitsery\ext\std_chrono.h" />
+    <ClInclude Include="bitsery\ext\std_map.h" />
+    <ClInclude Include="bitsery\ext\std_optional.h" />
+    <ClInclude Include="bitsery\ext\std_queue.h" />
+    <ClInclude Include="bitsery\ext\std_set.h" />
+    <ClInclude Include="bitsery\ext\std_smart_ptr.h" />
+    <ClInclude Include="bitsery\ext\std_stack.h" />
+    <ClInclude Include="bitsery\ext\std_tuple.h" />
+    <ClInclude Include="bitsery\ext\std_variant.h" />
+    <ClInclude Include="bitsery\ext\utils\composite_type_overloads.h" />
+    <ClInclude Include="bitsery\ext\utils\memory_resource.h" />
+    <ClInclude Include="bitsery\ext\utils\pointer_utils.h" />
+    <ClInclude Include="bitsery\ext\utils\polymorphism_utils.h" />
+    <ClInclude Include="bitsery\ext\utils\rtti_utils.h" />
+    <ClInclude Include="bitsery\ext\value_range.h" />
+    <ClInclude Include="bitsery\serializer.h" />
+    <ClInclude Include="bitsery\traits\array.h" />
+    <ClInclude Include="bitsery\traits\core\std_defaults.h" />
+    <ClInclude Include="bitsery\traits\core\traits.h" />
+    <ClInclude Include="bitsery\traits\deque.h" />
+    <ClInclude Include="bitsery\traits\forward_list.h" />
+    <ClInclude Include="bitsery\traits\list.h" />
+    <ClInclude Include="bitsery\traits\string.h" />
+    <ClInclude Include="bitsery\traits\vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
