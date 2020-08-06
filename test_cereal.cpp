@@ -7,6 +7,40 @@
 #include "my_types.h"
 #include <fstream>
 
+// 自定义的
+template<class Archive, class T>
+void save(Archive& archive, const MyVector<T>& o)
+{
+	typename std::vector<T>::size_type size = o.data.size();
+	archive(size);
+
+	for (typename std::vector<T>::size_type i = 0; i < size; i++)
+	{
+		archive(o.data[i]);
+	}
+}
+
+template<class Archive, class T>
+void load(Archive & archive, MyVector<T>& o)
+{
+	typename std::vector<T>::size_type size = o.data.size();
+	archive(size);
+	o.data.resize(size);
+
+
+	for (typename std::vector<T>::size_type i = 0; i < size; i++)
+	{
+		archive(o.data[i]);
+	}
+}
+
+template<class Archive>
+void serialize(Archive & archive,
+	MyVectorData & m)
+{
+	archive(cereal::make_nvp("list", m.list));
+}
+
 template<class Archive>
 void serialize(Archive & archive,
 	MyStruct & m)
@@ -16,16 +50,15 @@ void serialize(Archive & archive,
 		cereal::make_nvp("fs", m.fs),
 		cereal::make_nvp("str", m.str));
 }
-//CEREAL_REGISTER_TYPE(MyStruct);
 
 
-//CEREAL_REGISTER_TYPE(MyStructList);
 template<class Archive>
 void serialize(Archive & archive,
 	MyStructList & m)
 {
 	archive(cereal::make_nvp("list", m.list));
 }
+
 
 template<class T>
 T& LastOne(std::vector<T>& arr)
@@ -65,6 +98,46 @@ int main4()
 	b.list.push_back(a);
 	b.list.push_back(a);
 	b.list.push_back(a);
+
+	MyVectorData c;
+	c.list.data.push_back(a);
+	c.list.data.push_back(a);
+	c.list.data.push_back(a);
+
+	//if(false)
+	{
+		{
+			std::ofstream file("abc.bin", std::ios::out | std::ios::binary | std::ios::ate);
+			cereal::BinaryOutputArchive archive(file);
+			//archive << b;
+			serialize(archive, c);
+		}
+		{
+			std::ifstream file("abc.bin", std::ios::in | std::ios::binary);
+			cereal::BinaryInputArchive archive(file);
+			//archive << b;
+			MyVectorData c2;
+			serialize(archive, c2);
+			assert(c2.list.data.size() == c.list.data.size());
+		}
+	}
+	{
+		std::stringstream str;
+		{
+			cereal::JSONOutputArchive archive(str);
+			//archive << b;
+			serialize(archive, c);
+		}
+		std::cout << str.str() << std::endl;
+
+		{
+			cereal::JSONInputArchive archive(str);
+			//archive << b;
+			MyVectorData c2;
+			serialize(archive, c2);
+			assert(c2.list.data.size() == c.list.data.size());
+		}
+	}
 
 	if (false)
 	{
