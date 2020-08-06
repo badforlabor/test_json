@@ -27,8 +27,32 @@ void load(Archive & archive, MyVector<T>& o)
 	archive(size);
 	o.data.resize(size);
 
-
 	for (typename std::vector<T>::size_type i = 0; i < size; i++)
+	{
+		archive(o.data[i]);
+	}
+}
+
+template<class Archive>
+void save(Archive& archive, const MyVector<float>& o)
+{
+	typename std::vector<float>::size_type size = o.data.size();
+	archive(size);
+
+	for (typename std::vector<float>::size_type i = 0; i < size; i++)
+	{
+		archive(o.data[i]);
+	}
+}
+
+template<class Archive>
+void load(Archive & archive, MyVector<float>& o)
+{
+	typename std::vector<float>::size_type size = o.data.size();
+	archive(size);
+	o.data.resize(size);
+
+	for (typename std::vector<float>::size_type i = 0; i < size; i++)
 	{
 		archive(o.data[i]);
 	}
@@ -39,6 +63,7 @@ void serialize(Archive & archive,
 	MyVectorData & m)
 {
 	archive(cereal::make_nvp("list", m.list));
+	archive(cereal::make_nvp("list2", m.list2));
 }
 
 template<class Archive>
@@ -103,6 +128,8 @@ int main4()
 	c.list.data.push_back(a);
 	c.list.data.push_back(a);
 	c.list.data.push_back(a);
+	c.list2.data.push_back(1.23);
+	c.list2.data.push_back(4.56);
 
 	//if(false)
 	{

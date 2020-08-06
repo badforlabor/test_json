@@ -32,4 +32,5 @@ public:
 struct MyVectorData
 {
 	MyVector<MyStruct> list;
+	MyVector<float> list2;
 };
