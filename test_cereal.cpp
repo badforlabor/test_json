@@ -6,8 +6,10 @@
 #include <cereal/types/polymorphic.hpp>
 #include "my_types.h"
 #include <fstream>
+using namespace cereal;
 
 // 自定义的
+#if 0
 template<class Archive, class T>
 void save(Archive& archive, const MyVector<T>& o)
 {
@@ -57,6 +59,60 @@ void load(Archive & archive, MyVector<float>& o)
 		archive(o.data[i]);
 	}
 }
+#else
+
+// 如果是二进制序列化，并且是基础数据类型，那么，就用binary进行序列化
+
+  //! Serialization for std::vectors of arithmetic (but not bool) using binary serialization, if supported
+template <class Archive, class T>
+typename std::enable_if<traits::is_output_serializable<BinaryData<T>, Archive>::value
+	&& std::is_arithmetic<T>::value, void>::type
+	save(Archive & ar, const MyVector<T>& vector)
+{
+	ar(make_size_tag(static_cast<size_type>(vector.data.size()))); // number of elements
+	ar(binary_data(vector.data.data(), vector.data.size() * sizeof(T)));
+}
+
+//! Serialization for std::vectors of arithmetic (but not bool) using binary serialization, if supported
+template <class Archive, class T>
+typename std::enable_if<traits::is_input_serializable<BinaryData<T>, Archive>::value
+	&& std::is_arithmetic<T>::value, void>::type
+	load(Archive & ar, MyVector<T> & vector)
+{
+	size_type vectorSize;
+	ar(make_size_tag(vectorSize));
+
+	vector.data.resize(static_cast<std::size_t>(vectorSize));
+	ar(binary_data(vector.data.data(), static_cast<std::size_t>(vectorSize) * sizeof(T)));
+}
+
+//! Serialization for non-arithmetic vector types
+template <class Archive, class T>
+typename std::enable_if<!(traits::is_output_serializable<BinaryData<T>, Archive>::value
+	&& std::is_arithmetic<T>::value), void>::type
+	save(Archive& ar, const MyVector<T>& vector)
+{
+	// json类型的序列化，处理数组时， SizeTag会自动转化成"[]"
+	ar(make_size_tag(static_cast<size_type>(vector.data.size()))); // number of elements
+
+	for (auto && v : vector.data)
+		ar(v);
+}
+
+//! Serialization for non-arithmetic vector types
+template <class Archive, class T>
+typename std::enable_if <!(traits::is_input_serializable<BinaryData<T>, Archive>::value
+	&& std::is_arithmetic<T>::value), void>::type
+	load(Archive & ar, MyVector<T> & vector)
+{
+	size_type size;
+	ar(make_size_tag(size));
+
+	vector.data.resize(static_cast<std::size_t>(size));
+	for (auto && v : vector.data)
+		ar(v);
+}
+#endif
 
 template<class Archive>
 void serialize(Archive & archive,
@@ -146,6 +202,7 @@ int main4()
 			MyVectorData c2;
 			serialize(archive, c2);
 			assert(c2.list.data.size() == c.list.data.size());
+			assert(c2.list2.data.size() == c.list2.data.size());
 		}
 	}
 	{
@@ -163,6 +220,7 @@ int main4()
 			MyVectorData c2;
 			serialize(archive, c2);
 			assert(c2.list.data.size() == c.list.data.size());
+			assert(c2.list2.data.size() == c.list2.data.size());
 		}
 	}
 
