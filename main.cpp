@@ -141,8 +141,11 @@ int main()
 		std::cout << p2.list.size() << std::endl;
 	}
 
-	extern int main1();
-	main1();
+	//extern int main1();
+	//main1();
+
+	extern int main4();
+	main4();
 
 	system("pause");
 

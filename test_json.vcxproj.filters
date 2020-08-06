@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\bitsery">
+      <UniqueIdentifier>{f92ecd79-a775-41e4-99a1-dabc67905aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\cereal">
+      <UniqueIdentifier>{7c55423c-2814-468e-95fe-db21ed43be95}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,181 +27,447 @@
     <ClCompile Include="test_bitsery.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test_cereal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bitsery\adapter\buffer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\adapter\measure_size.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\adapter\stream.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\bitsery.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="bitsery\details\adapter_common.h">
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
     <ClInclude Include="bitsery\brief_syntax\array.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\atomic.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\chrono.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\deque.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\forward_list.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\list.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\map.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\memory.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\queue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\set.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\stack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\string.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\tuple.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\unordered_map.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\unordered_set.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\variant.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax\vector.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\brief_syntax.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\common.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\deserializer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\details\adapter_common.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\details\brief_syntax_common.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\details\not_defined_type.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\details\serialization_common.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\compact_value.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\entropy.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\growable.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\inheritance.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\pointer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_atomic.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_chrono.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_map.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_optional.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_queue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_set.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_smart_ptr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_stack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_tuple.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\std_variant.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\utils\composite_type_overloads.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\utils\memory_resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\utils\pointer_utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\utils\polymorphism_utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\utils\rtti_utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\ext\value_range.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bitsery\serializer.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
     <ClInclude Include="bitsery\traits\array.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
-    <ClInclude Include="bitsery\traits\core\std_defaults.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="bitsery\brief_syntax\atomic.h">
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
-    <ClInclude Include="bitsery\traits\core\traits.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="bitsery\bitsery.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\details\brief_syntax_common.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\adapter\buffer.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\chrono.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\common.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\compact_value.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\utils\composite_type_overloads.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\deque.h">
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
     <ClInclude Include="bitsery\traits\deque.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\deserializer.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\entropy.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\forward_list.h">
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
     <ClInclude Include="bitsery\traits\forward_list.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\growable.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\inheritance.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\list.h">
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
     <ClInclude Include="bitsery\traits\list.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\map.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\adapter\measure_size.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\memory.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\utils\memory_resource.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\details\not_defined_type.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\pointer.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\utils\pointer_utils.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\utils\polymorphism_utils.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\queue.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\utils\rtti_utils.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\details\serialization_common.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\serializer.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\set.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\stack.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_atomic.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_chrono.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\traits\core\std_defaults.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_map.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_optional.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_queue.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_set.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_smart_ptr.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_stack.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_tuple.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\std_variant.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\adapter\stream.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\string.h">
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
     <ClInclude Include="bitsery\traits\string.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\traits\core\traits.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\tuple.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\unordered_map.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\unordered_set.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\ext\value_range.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\variant.h">
+      <Filter>头文件\bitsery</Filter>
+    </ClInclude>
+    <ClInclude Include="bitsery\brief_syntax\vector.h">
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
     <ClInclude Include="bitsery\traits\vector.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\bitsery</Filter>
     </ClInclude>
+    <ClInclude Include="cereal\access.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\archives\adapters.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\archives\binary.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\archives\json.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\archives\portable_binary.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\archives\xml.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\cereal.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\details\helpers.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\details\polymorphic_impl.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\details\polymorphic_impl_fwd.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\details\static_object.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\details\traits.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\details\util.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\base64.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\allocators.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\cursorstreamwrapper.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\document.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\encodedstream.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\encodings.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\error\en.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\error\error.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\filereadstream.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\filewritestream.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\fwd.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\biginteger.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\diyfp.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\dtoa.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\ieee754.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\itoa.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\meta.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\pow10.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\regex.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\stack.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\strfunc.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\strtod.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\internal\swap.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\istreamwrapper.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\memorybuffer.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\memorystream.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\msinttypes\inttypes.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\msinttypes\stdint.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\ostreamwrapper.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\pointer.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\prettywriter.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\rapidjson.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\reader.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\schema.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\stream.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\stringbuffer.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidjson\writer.h">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidxml\rapidxml.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidxml\rapidxml_iterators.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidxml\rapidxml_print.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\external\rapidxml\rapidxml_utils.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\macros.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\specialize.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\array.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\atomic.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\base_class.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\bitset.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\boost_variant.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\chrono.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\common.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\complex.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\concepts\pair_associative_container.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\deque.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\forward_list.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\functional.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\list.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\map.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\memory.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\optional.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\polymorphic.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\queue.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\set.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\stack.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\string.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\tuple.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\unordered_map.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\unordered_set.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\utility.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\valarray.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\variant.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\types\vector.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="cereal\version.hpp">
+      <Filter>头文件\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="my_types.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cereal\external\rapidxml\manual.html">
+      <Filter>头文件\cereal</Filter>
+    </None>
   </ItemGroup>
 </Project>

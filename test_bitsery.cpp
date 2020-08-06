@@ -5,7 +5,7 @@
 #include <bitsery/traits/string.h>
 #include <iostream>
 #include <fstream>
-
+#include "my_types.h"
 
 template<typename A>
 struct ArrayTraits {
@@ -45,13 +45,6 @@ struct ArrayTraits<std::vector<float>> {
 	}
 };
 
-enum class MyEnum :uint16_t { V1, V2, V3 };
-struct MyStruct {
-	uint32_t i;
-	MyEnum e;
-	std::vector<float> fs;
-	std::string str;
-};
 template <typename S>
 void serialize(S& s, MyStruct& o) {
 	s.value4b(o.i);
@@ -64,13 +57,12 @@ void serialize(S& s, MyStruct& o) {
 
 	ArraySerialize(s, o.str);
 }
-struct MyStructList {
-	std::vector<MyStruct> list;
-};
+
 template <typename S>
 void serialize(S& s, MyStructList& o) {
 	s.container(o.list, 10000);
 }
+
 using Buffer = std::vector<uint8_t>;
 using OutputAdapter = bitsery::OutputBufferAdapter<Buffer>;
 using InputAdapter = bitsery::InputBufferAdapter<Buffer>;
