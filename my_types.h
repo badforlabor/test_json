@@ -29,8 +29,19 @@ public:
 	
 };
 
+
+// 自定义的string，最终转化成std::string(utf8)即可。
+class MyString
+{
+public:
+	MyString() {}
+
+	std::wstring data;
+};
+
 struct MyVectorData
 {
 	MyVector<MyStruct> list;
 	MyVector<float> list2;
+	MyString abc;
 };

@@ -6,6 +6,9 @@
 #include <cereal/types/polymorphic.hpp>
 #include "my_types.h"
 #include <fstream>
+#include <locale>
+#include <codecvt>
+
 using namespace cereal;
 
 // 自定义的
@@ -114,12 +117,101 @@ typename std::enable_if <!(traits::is_input_serializable<BinaryData<T>, Archive>
 }
 #endif
 
+
+#if 0
+
+template <class Archive>
+typename std::enable_if<traits::is_output_serializable<BinaryData<MyString>, Archive>::value, void>::type
+ save(Archive & ar, const MyString& o)
+{
+	ar(make_size_tag(static_cast<size_type>(o.data.size())));
+	ar(binary_data((const char *)o.data.c_str(), o.data.size() * sizeof(wchar_t)));
+}
+
+template <class Archive>
+typename std::enable_if<traits::is_input_serializable<BinaryData<MyString>, Archive>::value, void>::type
+load(Archive & ar, MyString& o)
+{
+	size_type size;
+	ar(make_size_tag(size));
+
+	std::vector<wchar_t> TempData;
+	TempData.resize(size + 1);
+
+	ar(binary_data(const_cast<wchar_t*>(&TempData[0]), static_cast<std::size_t>(size) * sizeof(wchar_t)));
+	TempData[TempData.size() - 1] = '\0';
+
+	o.data = const_cast<wchar_t*>(&TempData[0]);
+}
+template <class Archive>
+typename std::enable_if<!traits::is_output_serializable<BinaryData<MyString>, Archive>::value, void>::type
+save(Archive & ar, const MyString& o)
+{
+	//ar(make_size_tag(static_cast<size_type>(o.data.size())));
+	//ar(binary_data((const char *)o.data.c_str(), o.data.size() * sizeof(wchar_t)));
+}
+
+template <class Archive>
+typename std::enable_if<!traits::is_input_serializable<BinaryData<MyString>, Archive>::value, void>::type
+load(Archive & ar, MyString& o)
+{
+	//size_type size;
+	//ar(make_size_tag(size));
+
+	//std::vector<wchar_t> TempData;
+	//TempData.resize(size + 1);
+
+	//ar(binary_data(const_cast<wchar_t*>(&TempData[0]), static_cast<std::size_t>(size) * sizeof(wchar_t)));
+	//TempData[TempData.size() - 1] = '\0';
+
+	//o.data = const_cast<wchar_t*>(&TempData[0]);
+}
+
+#else
+
+std::wstring s2ws(const std::string& str)
+{
+	using convert_typeX = std::codecvt_utf8<wchar_t>;
+	std::wstring_convert<convert_typeX, wchar_t> converterX;
+
+	return converterX.from_bytes(str);
+}
+
+std::string ws2s(const std::wstring& wstr)
+{
+	using convert_typeX = std::codecvt_utf8<wchar_t>;
+	std::wstring_convert<convert_typeX, wchar_t> converterX;
+
+	return converterX.to_bytes(wstr);
+}
+
+template <class Archive>
+void save(Archive & ar, const MyString& o)
+{
+	// json不支持wstring，需要转化成char
+	std::string str;
+	str = ws2s(o.data);
+	save(ar, str);
+}
+
+template <class Archive>
+void load(Archive & ar, MyString& o)
+{
+	std::string str;
+	load(ar, str);
+	o.data = s2ws(str);
+}
+
+#endif
+
+
 template<class Archive>
 void serialize(Archive & archive,
 	MyVectorData & m)
 {
 	archive(cereal::make_nvp("list", m.list));
 	archive(cereal::make_nvp("list2", m.list2));
+	archive(cereal::make_nvp("abc", m.abc));
 }
 
 template<class Archive>
@@ -186,6 +278,7 @@ int main4()
 	c.list.data.push_back(a);
 	c.list2.data.push_back(1.23);
 	c.list2.data.push_back(4.56);
+	c.abc.data = L"abc中文def";
 
 	//if(false)
 	{
