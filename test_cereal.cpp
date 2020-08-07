@@ -189,16 +189,18 @@ template <class Archive>
 void save(Archive & ar, const MyString& o)
 {
 	// json不支持wstring，需要转化成char
+	// 必须嵌套一层，要不序列化json时，会出错
 	std::string str;
 	str = ws2s(o.data);
-	save(ar, str);
+	ar(cereal::make_nvp("str", str));
 }
 
 template <class Archive>
 void load(Archive & ar, MyString& o)
 {
+	// 必须嵌套一层，要不序列化json时，会出错
 	std::string str;
-	load(ar, str);
+	ar(cereal::make_nvp("str", str));
 	o.data = s2ws(str);
 }
 
